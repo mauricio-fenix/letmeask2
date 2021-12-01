@@ -1,10 +1,13 @@
 import IllustrationImg from '../assets/illustration.svg';
 import LogoIconImg from '../assets/logo.svg';
-import GoogleIconImg from '../assets/google-icon.svg';
-import '../styles/home.scss';
 import { Button } from '../components/Button';
+import { Link } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth';
+import '../styles/home.scss';
 
 export function NewRoom() {
+  const { user } = useAuth();
+
   return(
     <div id="page-home">
       <aside>
@@ -15,6 +18,7 @@ export function NewRoom() {
       <main>
         <div className='main-content'>
           <img src={LogoIconImg} alt="letmeask" />
+          <h1>{user?.name}</h1>
           <h2>Criar uma nova sala</h2>
           <form>
             <input
@@ -23,7 +27,7 @@ export function NewRoom() {
             />
             <Button type="submit">Criar sala</Button>
           </form>
-          <p>Quer entrar em uma sala existente? <a href='#'>clique aqui</a></p>
+          <p>Quer entrar em uma sala existente? <Link to='/'>clique aqui</Link></p>
         </div>
       </main>
     </div>
