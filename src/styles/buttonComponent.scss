@@ -1,5 +1,4 @@
  .buttonComponent {
-  margin-top: 64px;
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
@@ -15,6 +14,12 @@
   border: 0;
 
   transition: filter 0.2s;
+
+  &.outlined {
+    background: white;
+    border: 1px solid #835AFD;
+    color: #835AFD; 
+  }
 
   &:not(:disabled):hover {
     filter: brightness(0.9);
